@@ -1,3 +1,4 @@
+import UserProfile from './components/UserProfile';
 import Header from './Header'
 import MainContent from './MainContent'
 import Footer from './Footer'
@@ -8,35 +9,32 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <WelcomeMessage />
-    <Header />
-    <MainContent />
-    <Footer />
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <>
+        <Header />
+        
+        {/*
+          --- Pass data to UserProfile as attributes/props ---
+          Note that age is passed as a string ("25") for simplicity,
+          but could also be passed as a number ({25}).
+        */}
+        <UserProfile 
+          name="Alice Johnson" 
+          age="25" 
+          bio="Alice is an avid hiker who loves capturing nature through her camera lens. She is learning React at ALX." 
+        />
+        
+        {/* You can use the component again with different data! */}
+        <UserProfile 
+          name="Bob Smith" 
+          age="30" 
+          bio="Bob is a software engineer who enjoys chess and reading sci-fi novels." 
+        />
+        
+        <MainContent />
+        <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
