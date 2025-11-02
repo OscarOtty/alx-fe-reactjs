@@ -21,7 +21,7 @@ function App() {
         <UserProfile 
           name="Alice Johnson" 
           age="25" 
-          bio="Alice is an avid hiker who loves capturing nature through her camera lens. She is learning React at ALX." 
+          bio="Loves hiking and photography." 
         />
         
         {/* You can use the component again with different data! */}
