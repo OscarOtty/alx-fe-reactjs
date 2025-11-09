@@ -1,8 +1,10 @@
-import ProfilePage from './ProfilePage';
+
 import UserInfo from './UserInfo';
 
-function ProfilePage({ userData }) {
-  return <UserInfo userData={userData} />;
+//Prop removed: { userData } is gone
+function ProfilePage() {
+  //Prop passing removed
+  return <UserInfo />;
 }
 
 export default ProfilePage;
