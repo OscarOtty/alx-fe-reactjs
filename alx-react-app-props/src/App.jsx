@@ -3,18 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ProfilePage from './ProfilePage';
+import { UserContext } from './UserContext';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
-    <>
-      function App() {
-      const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
-      return <ProfilePage userData={userData} />;
-      }
-    </>
-  )
+    //Wrap the component tree and provide the value
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
+  );
 }
-
 export default App;
