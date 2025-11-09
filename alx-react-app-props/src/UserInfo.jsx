@@ -1,7 +1,10 @@
+
 import UserDetails from './UserDetails';
 
-function UserInfo({ userData }) {
-  return <UserDetails userData={userData} />;
+//Prop removed: { userData } is gone
+function UserInfo() {
+  //Prop passing removed
+  return <UserDetails />;
 }
 
 export default UserInfo;
