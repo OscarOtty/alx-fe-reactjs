@@ -6,7 +6,7 @@ const UserProfile = (props) => {
     <div className="user-profile" style={{ border: '1px solid gray', padding: '10px', margin: '10px' }}>
       {/* Access props using dot notation: props.propertyName */}
       <h2 style={{ color: 'blue' }}>User Profile: {props.name}</h2>
-      <p>Age: <span style={{ fontweight: 'bold' }}>{props.age}</span></p>
+      <p>Age: <span style={{ fontWeight: 'bold' }}>{props.age}</span></p>
       <p><strong>Bio:</strong> {props.bio}</p>
       <hr /> {/* Separator for visual clarity */}
     </div>
