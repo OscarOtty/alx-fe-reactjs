@@ -1,23 +1,44 @@
-import { useState } from 'react'
 import './App.css'
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
-// You might need to clean up the default Vite/React imports if they still exist
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RecipeList from './components/RecipeList'
+import AddRecipeForm from './components/AddRecipeForm'
+import useRecipeStore from './components/recipeStore';
+import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 function App() {
-  return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ borderBottom: '2px solid #eee', paddingBottom: '10px' }}>
-        Recipe Sharing Application
-      </h1>
-      
-      {/* Component for adding new recipes */}
-      <AddRecipeForm />
+  const recipes = useRecipeStore(state => state.recipes);
 
-      {/* Component for displaying the list of recipes */}
-      <RecipeList />
-    </div>
-  );
+  return (
+    <BrowserRouter basename="/">
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <SearchBar />
+              <RecipeList />
+              <AddRecipeForm />
+              <FavoritesList />
+              <RecommendationsList />
+            </>
+          }
+        />
+        {recipes.map(recipe => {
+          const recipeId = recipe.id;
+          return (
+            <Route
+              path={`/${recipeId}`}
+              element={<RecipeDetails recipeId={recipeId} />}
+              key={recipeId}
+            />
+          )
+        })}
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
