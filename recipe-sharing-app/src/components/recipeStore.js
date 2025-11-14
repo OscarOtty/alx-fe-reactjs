@@ -1,4 +1,5 @@
 import create from 'zustand'
+import { useRecipeStore } from './recipeStore';
 // This store manages the global array of recipes and the CRUD actions.
 const useRecipeStore = create((set) => ({
   // Initial state with dummy data
